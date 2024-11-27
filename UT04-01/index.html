@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <!-- Vincular Bootstrap desde un CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Tu hoja de estilos personalizada (opcional) -->
+</head>
+<body>
+    <div class="container mt-5">
+        <form action="https://www.w3schools.com/action_page.php" method="post">
+            <!-- Datos Usuario -->
+            <fieldset class="border p-4 mb-4">
+                <legend class="w-auto">Datos Usuario</legend>
+                <div class="form-group">
+                    <label for="nombreUser">Nombre de Usuario</label>
+                    <input  name="nombreUser" id="nombreUser" type="text" class="form-control" placeholder="Nombre de Usuario">
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input name="apellidos" id="apellidos" type="password" class="form-control" placeholder="Contraseña">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="Rememberpass" name="Rememberpass">
+                    <label for="Rememberpass" class="form-check-label">Mostrar contraseña</label>
+                </div>
+            </fieldset>
+
+            <!-- Datos Personales -->
+            <fieldset class="border p-4 mb-4">
+                <legend class="w-auto">Datos Personales</legend>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label for="apellidos">Apellidos</label>
+                    <input id="apellidos" name="apellidos" type="text" class="form-control" placeholder="Apellidos">
+                </div>
+                <div class="form-group">
+                    <label for="tel">Teléfono</label>
+                    <input name="tel" id="tel" type="tel" class="form-control" placeholder="Ejem:(+34)922112233">
+                </div>
+                <div class="form-group">
+                    <label for="codP">Código Postal</label>
+                    <input id="codP" type="number" class="form-control" placeholder="38XXX">
+                </div>
+                <div class="form-group">
+                    <label for="dni">DNI/NIE</label>
+                    <div class="d-flex">
+                        <select name="dniNie" id="dniNie" class="form-control mr-2">
+                            <option value="DNI">DNI</option>
+                            <option value="NIE">NIE</option>
+                        </select>
+                        <input id="dniText" type="text" class="form-control" placeholder="DNI/NIE">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="year">Año de Nacimiento</label>
+                    <select name="year" id="year" class="form-control">
+                        <option value="1990">1990</option>
+                        <option value="1991">1991</option>
+                        <option value="1992">1992</option>
+                        <option value="1993">1993</option>
+                        <option value="1994">1994</option>
+                        <option value="1995">1995</option>
+                        <option value="1996">1996</option>
+                        <option value="1997">1997</option>
+                        <option value="1998">1998</option>
+                        <option value="1999">1999</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Crear cuenta como:</label>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="html" name="fav_language" value="HTML" class="form-check-input">
+                        <label for="html" class="form-check-label">HTML</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="javascript" name="fav_language" value="JavaScript" class="form-check-input">
+                        <label for="javascript" class="form-check-label">JavaScript</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Aficiones -->
+            <fieldset class="border p-4 mb-4">
+                <legend class="w-auto">Elige tus aficiones</legend>
+                <div class="form-check">
+                    <input type="checkbox" id="aficiones1" name="aficiones1" value="Música" class="form-check-input">
+                    <label for="aficiones1" class="form-check-label">Música</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="aficiones2" name="aficiones2" value="Deporte" class="form-check-input">
+                    <label for="aficiones2" class="form-check-label">Deporte</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="aficiones3" name="aficiones3" value="Juegos" class="form-check-input">
+                    <label for="aficiones3" class="form-check-label">Video Juegos</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="aficiones4" name="aficiones4" value="Manualidades" class="form-check-input">
+                    <label for="aficiones4" class="form-check-label">Manualidades</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="aficiones5" name="aficiones5" value="Artes" class="form-check-input">
+                    <label for="aficiones5" class="form-check-label">Artes</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="aficiones6" name="aficiones6" value="Lectura" class="form-check-input">
+                    <label for="aficiones6" class="form-check-label">Lectura</label>
+                </div>
+            </fieldset>
+
+            <!-- Datos Publicación -->
+            <fieldset class="border p-4 mb-4">
+                <legend class="w-auto">Datos Publicación</legend>
+                <div class="form-group">
+                    <label for="dptitle">Título</label>
+                    <input type="text" id="dptitle" name="dptitle" class="form-control" value="Lectura" maxlength="15">
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <textarea name="description" id="description" class="form-control" placeholder="Descripción" maxlength="120"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Botón de Enviar -->
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        <!-- Enlace para regresar -->
+        <a href="../index.html" class="btn btn-secondary mt-3">Volver</a>
+    </div>
+
+    <!-- Incluir jQuery, Popper.js y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
