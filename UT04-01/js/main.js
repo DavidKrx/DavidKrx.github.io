@@ -7,16 +7,77 @@ function myFunction() {
       x.type = "password";
     }
   } 
-  function habilitarInput() {
-            var select = document.getElementById('dniNie');
-            var input = document.getElementById('dniText');
-            
-            // Si la opción seleccionada es "escribir", habilitar el input
-            if (select.value == 'DNI' || select.value == 'NIE') {
-               
-                input.disabled = false;  // Habilitar el input
-            } else {
-                
-                input.disabled = true;  // Deshabilitar el input
-            }
-        }
+
+  
+
+ function habilitarInput() {
+  const dniNieSelect = document.getElementById('dniNie').value;
+  const dniTextInput = document.getElementById('dniText');
+    if (dniNieSelect === 'DNI') {
+        // Habilitamos el input y establecemos el placeholder para el DNI
+        dniTextInput.disabled = false;
+        dniTextInput.placeholder = "12345678A"; // Formato de DNI
+    } else if (dniNieSelect === 'NIE') {
+        // Habilitamos el input y establecemos el placeholder para el NIE
+        dniTextInput.disabled = false;
+        dniTextInput.placeholder = "X1234567T"; // Formato de NIE
+    } else {
+        // Si no se ha seleccionado DNI ni NIE, deshabilitamos el input
+        dniTextInput.disabled = true;
+        dniTextInput.placeholder = "DNI/NIE"; // Placeholder predeterminado
+    }
+}
+
+// Validar DNI
+const dniNieSelectA = document.getElementById('dniNie').value;
+
+const dniNie = document.getElementById('dniText');
+
+dniNie.addEventListener("input", validarDniNie);
+
+function validarDniNie() {
+  
+  
+  // Expresión regular para validar NIE (una letra seguida de 7 dígitos y una letra final)
+  const regexNie = /^[XYZ]\d{7}[A-Za-z]$/;
+  const regexDni = /^\d{8}[A-Za-z]$/;
+  
+  // Comprobamos si el valor coincide con alguna de las expresiones regulares
+  
+  if (regexDni.test(dniNie.value) && dniNieSelectA == 'DNI') {
+    dniNie.style.background.color= "green";
+    dniNie.style.color= "green";
+  } 
+  else if (regexNie.test(dniNie.value) && dniNieSelectA == 'NIE') {
+    dniNie.style.background.color= "blue";
+    dniNie.style.color= "blue";
+  }
+  else{
+      dniNie.style.background.color= "red";
+      dniNie.style.color= "red";
+  }
+}
+
+
+
+
+
+// Contador de palabras
+const description = document.getElementById("description");
+const contDesc = document.getElementById("contDesc");
+
+description.addEventListener("input", () => {
+  var conD=description.value.length;
+  contDesc.textContent=`${conD}/120`;
+})
+
+const dptitle = document.getElementById("dptitle");
+const conttitle = document.getElementById("conttitle");
+
+dptitle.addEventListener("input", () => {
+  var conT=dptitle.value.length;
+  conttitle.textContent=`${conT}/15`;
+})
+
+
+

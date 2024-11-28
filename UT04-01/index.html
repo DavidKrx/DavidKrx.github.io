@@ -56,7 +56,7 @@
                             <option value="DNI">DNI</option>
                             <option value="NIE">NIE</option>
                         </select>
-                        <input id="dniText" type="text" class="form-control" placeholder="DNI/NIE" minlength="1" disabled required>
+                        <input id="dniText" type="text" class="form-control" placeholder="DNI/NIE" disabled required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -148,10 +148,12 @@
                 <div class="form-group">
                     <label for="dptitle">Título</label>
                     <input type="text" id="dptitle" name="dptitle" class="form-control" maxlength="15" required>
+                    <span id="conttitle">0/15</span>
                 </div>
                 <div class="form-group">
                     <label for="description">Descripción</label>
                     <textarea name="description" id="description" class="form-control" placeholder="Descripción" maxlength="120" required></textarea>
+                    <span id="contDesc">0/120</span>
                 </div>
             </fieldset>
 
