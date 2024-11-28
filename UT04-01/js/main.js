@@ -44,11 +44,11 @@ function validarDniNie() {
   
   // Comprobamos si el valor coincide con alguna de las expresiones regulares
   
-  if (regexDni.test(dniNie.value) && dniNieSelectA == 'DNI') {
+  if (regexDni.test(dniNie.value)) {
     dniNie.style.background.color= "green";
     dniNie.style.color= "green";
   } 
-  else if (regexNie.test(dniNie.value) && dniNieSelectA == 'NIE') {
+  else if (regexNie.test(dniNie.value)) {
     dniNie.style.background.color= "blue";
     dniNie.style.color= "blue";
   }
@@ -78,6 +78,17 @@ dptitle.addEventListener("input", () => {
   var conT=dptitle.value.length;
   conttitle.textContent=`${conT}/15`;
 })
+
+function validarLongitud(input) {
+  if (input.value.length > 5) {
+      input.value = input.value.slice(0, 5); // Limita a 5 caracteres
+  }
+}
+function validarLongitudTelefono(input) {
+          if (input.value.length > 9) {
+              input.value = input.value.slice(0, 9); // Limita a 5 caracteres
+          }
+      }
 
 
 

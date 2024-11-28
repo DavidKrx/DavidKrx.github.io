@@ -42,21 +42,21 @@
                 </div>
                 <div class="form-group">
                     <label for="tel">Teléfono</label>
-                    <input name="tel" id="tel" type="tel" class="form-control" placeholder="Ejem:(+34)922112233" required>
+                    <input name="tel" id="tel" type="tel" class="form-control" placeholder="922112233" max="999999999" oninput="validarLongitudTelefono(this)"  required>
                 </div>
                 <div class="form-group">
                     <label for="codP">Código Postal</label>
-                    <input id="codP" type="number" class="form-control" placeholder="38XXX" minlength="4" maxlength="5" required>
+                    <input id="codP" type="number" class="form-control" placeholder="38XXX" max="99999" oninput="validarLongitud(this)" required>
                 </div>
                 <div class="form-group">
-                    <label for="dni">DNI/NIE</label>
+                    <label for="dniText">DNI/NIE</label>
                     <div class="d-flex">
-                        <select name="dniNie" id="dniNie" class="form-control mr-2" required onchange="habilitarInput()">
+                        <select name="dniNie" id="dniNie" required onchange="habilitarInput()">
                             <option value="default" disabled selected>DNI/NIE</option>
                             <option value="DNI">DNI</option>
                             <option value="NIE">NIE</option>
                         </select>
-                        <input id="dniText" type="text" class="form-control" placeholder="DNI/NIE" disabled required>
+                        <input id="dniText" name="dniNieValue" type="text" class="form-control" placeholder="DNI/NIE" disabled required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -100,14 +100,12 @@
                     </select>
                 
                 </div>
-                <div class="form-group">
+                <div class="form-group d-flex flex-column">
                     <label>Crear cuenta como:</label>
                     <div class="form-check form-check-inline">
-                        <input type="radio" id="particular" name="fav_language" value="particular" class="form-check-input" required>
+                        <input type="radio" id="particular" name="particulaEmpresa" value="particular" class="form-check-input" required>
                         <label for="particular" class="form-check-label">Particular</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="empresa" name="fav_language" value="empresa" class="form-check-input" required>
+                        <input type="radio" id="empresa" name="particulaEmpresa" value="empresa" class="form-check-input" required>
                         <label for="empresa" class="form-check-label">Empresa</label>
                     </div>
                 </div>
@@ -152,7 +150,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Descripción</label>
-                    <textarea name="description" id="description" class="form-control" placeholder="Descripción" maxlength="120" required></textarea>
+                    <textarea name="description" id="description" class="form-control" placeholder="Descripción" maxlength="120"  required></textarea>
                     <span id="contDesc">0/120</span>
                 </div>
             </fieldset>
