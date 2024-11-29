@@ -1,3 +1,13 @@
+//Agregar el DOM
+const form = document.getElementById('frm');
+const nombreUser = document.getElementById('nombreUser');
+
+form.addEventListener("submit",(e)=>{
+  if(!nombreUser.validationMessage==""){
+    e.preventDefault()
+    alert(nombreUser.validationMessage)
+  }
+})
 
 function myFunction() {
     var x = document.getElementById("password");

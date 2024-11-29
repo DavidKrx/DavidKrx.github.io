@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <form action="https://www.w3schools.com/action_page.php" method="post">
+        <form id="frm" action="https://www.w3schools.com/action_page.php" method="post" novalidate>
             <!-- Datos Usuario -->
             <fieldset class="border p-4 mb-4">
                 <legend class="w-auto">Datos Usuario</legend>
@@ -34,7 +34,7 @@
                 <legend class="w-auto">Datos Personales</legend>
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required>
+                    <input id="nombre" name="nombre" type="text" class="form-control" pattern="[A-Za-z]+" placeholder="Nombre">
                 </div>
                 <div class="form-group">
                     <label for="apellidos">Apellidos</label>
