@@ -8,3 +8,7 @@ input:required:focus:invalid, select:required:focus:invalid, textarea:required:f
     border-color: red; 
     background-color: #f8d7da; 
 }
+
+.errorText{
+   color: red; 
+}

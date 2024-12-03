@@ -11,10 +11,20 @@ const DOM ={
   conttitle: document.getElementById("conttitle"),
 }
 
+const ERROR ={ 
+  errorPass: document.getElementById('errorPass'),
+  errorUser: document.getElementById('errorUser'),
+}
+
 DOM.form.addEventListener("submit",(e)=>{
   if(!DOM.nombreUser.validationMessage==""){
     e.preventDefault()
-    alert(DOM.nombreUser.validationMessage)
+    ERROR.errorUser.textContent="Campo obligatorio";
+  }
+
+  if(!DOM.password.validationMessage==""){
+    e.preventDefault()
+    ERROR.errorPass.textContent="Campo obligatorio";
   }
 })
 
