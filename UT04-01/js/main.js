@@ -1,61 +1,39 @@
-//Agregar el DOM
-const DOM ={ 
-  form: document.getElementById('frm'),
-  nombreUser: document.getElementById('nombreUser'),
-  password: document.getElementById("password"),
-  dniNieSelect: document.getElementById('dniNie'),
-  dniTextInput: document.getElementById('dniText'),
-  description: document.getElementById("description"),
-  contDesc: document.getElementById("contDesc"),
-  dptitle: document.getElementById("dptitle"),
-  conttitle: document.getElementById("conttitle"),
-}
-
-const ERROR ={ 
-  errorPass: document.getElementById('errorPass'),
-  errorUser: document.getElementById('errorUser'),
-}
-
-DOM.form.addEventListener("submit",(e)=>{
-  if(!DOM.nombreUser.validationMessage==""){
-    e.preventDefault()
-    ERROR.errorUser.textContent="Campo obligatorio";
-  }
-
-  if(!DOM.password.validationMessage==""){
-    e.preventDefault()
-    ERROR.errorPass.textContent="Campo obligatorio";
-  }
-})
 
 function myFunction() {
-    if (DOM.password.type === "password") {
-      DOM.password = "text";
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
     } else {
-      DOM.password = "password";
+      x.type = "password";
     }
   } 
 
- function habilitarInput() {
+  
 
-    if (DOM.dniNieSelect.value === 'DNI') {
+ function habilitarInput() {
+  const dniNieSelect = document.getElementById('dniNie').value;
+  const dniTextInput = document.getElementById('dniText');
+    if (dniNieSelect === 'DNI') {
         // Habilitamos el input y establecemos el placeholder para el DNI
-        DOM.dniTextInput.disabled = false;
-        DOM.dniTextInput.placeholder = "12345678A"; // Formato de DNI
-    } else if (DOM.dniNieSelect.value === 'NIE') {
+        dniTextInput.disabled = false;
+        dniTextInput.placeholder = "12345678A"; // Formato de DNI
+    } else if (dniNieSelect === 'NIE') {
         // Habilitamos el input y establecemos el placeholder para el NIE
-        DOM.dniTextInput.disabled = false;
-        DOM.dniTextInput.placeholder = "X1234567T"; // Formato de NIE
+        dniTextInput.disabled = false;
+        dniTextInput.placeholder = "X1234567T"; // Formato de NIE
     } else {
         // Si no se ha seleccionado DNI ni NIE, deshabilitamos el input
-        DOM.dniTextInput.disabled = true;
-        DOM.dniTextInput.placeholder = "DNI/NIE"; // Placeholder predeterminado
+        dniTextInput.disabled = true;
+        dniTextInput.placeholder = "DNI/NIE"; // Placeholder predeterminado
     }
 }
 
 // Validar DNI
+const dniNieSelectA = document.getElementById('dniNie').value;
 
-DOM.dniTextInput.addEventListener("input", validarDniNie);
+const dniNie = document.getElementById('dniText');
+
+dniNie.addEventListener("input", validarDniNie);
 
 function validarDniNie() {
   
@@ -66,17 +44,17 @@ function validarDniNie() {
   
   // Comprobamos si el valor coincide con alguna de las expresiones regulares
   
-  if (regexDni.test(DOM.dniNieSelect.value)) {
-    DOM.dniNieSelect.style.background.color= "green";
-    DOM.dniNieSelect.style.color= "green";
+  if (regexDni.test(dniNie.value)) {
+    dniNie.style.background.color= "green";
+    dniNie.style.color= "green";
   } 
-  else if (regexNie.test(DOM.dniNieSelect.value)) {
-    DOM.dniNieSelect.style.background.color= "blue";
-    DOM.dniNieSelect.style.color= "blue";
+  else if (regexNie.test(dniNie.value)) {
+    dniNie.style.background.color= "blue";
+    dniNie.style.color= "blue";
   }
   else{
-      DOM.dniNieSelect.style.background.color= "red";
-      DOM.dniNieSelect.style.color= "red";
+      dniNie.style.background.color= "red";
+      dniNie.style.color= "red";
   }
 }
 
@@ -85,17 +63,20 @@ function validarDniNie() {
 
 
 // Contador de palabras
+const description = document.getElementById("description");
+const contDesc = document.getElementById("contDesc");
 
-
-
-DOM.description.addEventListener("input", () => {
-  var conD=DOM.description.value.length;
-  DOM.contDesc.textContent=`${conD}/120`;
+description.addEventListener("input", () => {
+  var conD=description.value.length;
+  contDesc.textContent=`${conD}/120`;
 })
 
-DOM.dptitle.addEventListener("input", () => {
-  var conT=DOM.dptitle.value.length;
-  DOM.conttitle.textContent=`${conT}/15`;
+const dptitle = document.getElementById("dptitle");
+const conttitle = document.getElementById("conttitle");
+
+dptitle.addEventListener("input", () => {
+  var conT=dptitle.value.length;
+  conttitle.textContent=`${conT}/15`;
 })
 
 function validarLongitud(input) {

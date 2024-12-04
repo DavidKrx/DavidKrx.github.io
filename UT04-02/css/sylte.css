@@ -1,4 +1,8 @@
 /* Estilo para campos válidos */
+main {
+    display: flex;
+    flex-direction: row;
+}
 input:valid, select:valid, textarea:valid {
     border-color: green; /* Color de borde para campos válidos */
     background-color: #d4edda; /* Fondo verde claro para campos válidos */
@@ -8,3 +12,8 @@ input:required:focus:invalid, select:required:focus:invalid, textarea:required:f
     border-color: red; 
     background-color: #f8d7da; 
 }
+
+.errorText{
+   color: red; 
+}
+
