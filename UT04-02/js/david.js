@@ -1,3 +1,5 @@
+
+
 function myFunction(password) {
     if (password.type === "password") {
       password.type = "text";
@@ -5,9 +7,9 @@ function myFunction(password) {
       password.type = "password";
     }
   } 
-
- function habilitarInput(dniNieSelect,dniTextInput) {
-
+  
+  function habilitarInput(dniNieSelect,dniTextInput) {
+  
     if (dniNieSelect.value === 'DNI') {
         // Habilitamos el input y establecemos el placeholder para el DNI
         dniTextInput.disabled = false;
@@ -21,11 +23,11 @@ function myFunction(password) {
         dniTextInput.disabled = true;
         dniTextInput.placeholder = "DNI/NIE"; // Placeholder predeterminado
     }
-}
-
-// Validar DNI
-
-function validarDniNie(dniNieSelect) {
+  }
+  
+  // Validar DNI
+  
+  function validarDniNie(dniNieSelect) {
   
   
   // Expresión regular para validar NIE (una letra seguida de 7 dígitos y una letra final)
@@ -46,19 +48,19 @@ function validarDniNie(dniNieSelect) {
       dniNieSelect.style.background.color= "red";
       dniNieSelect.style.color= "red";
   }
-}
-
-// Contador de palabras
-function validarLongitud(input) {
+  }
+  
+  // Contador de palabras
+  function validarLongitud(input) {
   if (input.value.length > 5) {
       input.value = input.value.slice(0, 5); // Limita a 5 caracteres
   }
-}
-function validarLongitudTelefono(input) {
+  }
+  function validarLongitudTelefono(input) {
           if (input.value.length > 9) {
               input.value = input.value.slice(0, 9); // Limita a 5 caracteres
           }
       }
-
-
-export {myFunction, habilitarInput,validarDniNie,validarLongitud,validarLongitudTelefono}
+  
+  
+  export {myFunction, habilitarInput,validarDniNie,validarLongitud,validarLongitudTelefono}

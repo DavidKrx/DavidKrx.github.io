@@ -1,8 +1,4 @@
 /* Estilo para campos válidos */
-main {
-    display: flex;
-    flex-direction: row;
-}
 input:valid, select:valid, textarea:valid {
     border-color: green; /* Color de borde para campos válidos */
     background-color: #d4edda; /* Fondo verde claro para campos válidos */
@@ -17,3 +13,132 @@ input:required:focus:invalid, select:required:focus:invalid, textarea:required:f
    color: red; 
 }
 
+/* Estilo general del formulario */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"], input[type="tel"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 10px;
+}
+
+.form-check-label {
+    display: inline-block;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.errorText {
+    color: red;
+    font-size: 0.875em;
+}
+
+/* Estilo para los contadores de caracteres */
+#conttitle, #contDesc {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.875em;
+    color: #888;
+}
+
+/* Estilo de los botones adicionales */
+a.btn {
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+}
+
+a.btn:hover {
+    background-color: #5a6268;
+}
+
+/* Diseño para campos de formulario específicos */
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"]:disabled, input[type="password"]:disabled, select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Estilo para inputs de radio */
+.form-check-inline {
+    margin-right: 15px;
+}
+
+/* Espaciado y alineación */
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.w-auto {
+    width: auto;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
