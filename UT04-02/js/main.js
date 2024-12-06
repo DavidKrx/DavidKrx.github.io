@@ -1,4 +1,3 @@
-//import * as mondongo from "./david.js"
 //Agregar el DOM
 const DOM ={ 
   form: document.getElementById('frm'),
@@ -9,13 +8,21 @@ const DOM ={
   telefono: document.getElementById("tel"),
   codigoPostal: document.getElementById("codP"),
   year:document.getElementById("year"),
-  dniNieSelect: document.getElementById('dniNie'),
   dniNieInput: document.getElementById('dniText'),
   description: document.getElementById("description"),
-  contDesc: document.getElementById("contDesc"),
   dptitle: document.getElementById("dptitle"),
-  conttitle: document.getElementById("conttitle"),
+
+  dniNieSelect: document.getElementById('dniNie'),
   checkbox:document.getElementById("checkbox"),
+  hiddenInput : document.getElementById('hideAficiones'),
+  aficiones1:document.getElementById("aficiones1"),
+  aficiones2:document.getElementById("aficiones2"),
+  aficiones3:document.getElementById("aficiones3"),
+  aficiones4:document.getElementById("aficiones4"),
+  aficiones5:document.getElementById("aficiones5"),
+  aficiones6:document.getElementById("aficiones6"),
+  contDesc: document.getElementById("contDesc"),
+  conttitle: document.getElementById("conttitle"),
 }
 
 const ERROR ={ 
@@ -28,6 +35,7 @@ const ERROR ={
   errorDniNie: document.getElementById('errorDniNie'),
   errorTitulo: document.getElementById('errorTitle'),
   errorDescription: document.getElementById('errorDesc'),
+  errorAficiones: document.getElementById('errorAficiones'),
 }
 
 const yearInicial=1920
@@ -39,8 +47,75 @@ for(year=yearInicial;year<=yearFinal;year++){
   DOM.year.appendChild(option);
 }
 
+DOM.nombreUser.addEventListener("input",()=>{
+  if(!DOM.nombreUser.validationMessage==""){
+    ERROR.errorUser.textContent="Campo obligatorio";
+  } else {
+    ERROR.errorUser.textContent="";
+  }
+})
+
+DOM.password.addEventListener("input",()=>{ 
+if(!DOM.password.validationMessage==""){
+  ERROR.errorPass.textContent="Campo obligatorio";
+}else {
+  ERROR.errorPass.textContent="";
+}})
+
+
+DOM.nombre.addEventListener("input",()=>{ 
+  if(!DOM.nombre.validationMessage==""){
+    ERROR.errorNombre.textContent="Campo obligatorio";
+  }else {
+    ERROR.errorNombre.textContent="";
+  }})
+
+  DOM.apellidos.addEventListener("input",()=>{ 
+    if(!DOM.apellidos.validationMessage==""){
+      ERROR.errorApellidos.textContent="Campo obligatorio";
+    }else {
+      ERROR.errorApellidos.textContent="";
+    }})
+
+    DOM.telefono.addEventListener("input",()=>{ 
+      if(!DOM.telefono.validationMessage==""){
+        ERROR.errorTelefono.textContent="Campo obligatorio";
+      }else {
+        ERROR.errorTelefono.textContent="";
+      }})
+
+      
+    DOM.codigoPostal.addEventListener("input",()=>{ 
+      if(!DOM.codigoPostal.validationMessage==""){
+        ERROR.errorCodigoPostal.textContent="Campo obligatorio";
+      }else {
+        ERROR.errorCodigoPostal.textContent="";
+      }})
+
+      DOM.dptitle.addEventListener("input",()=>{ 
+        var conT=DOM.dptitle.value.length;
+        conttitle.textContent=`${conT}/15`;
+        if(!DOM.dptitle.validationMessage==""){
+          ERROR.errorTitulo.textContent="Campo obligatorio";
+        }else {
+          ERROR.errorTitulo.textContent="";
+        }
+      })
+
+        DOM.description.addEventListener("input",()=>{ 
+          const conD = DOM.description.value.length
+          DOM.contDesc.textContent=`${conD} /120`;
+          if(!DOM.description.validationMessage==""){
+            ERROR.errorDescription.textContent="Campo obligatorio";
+          }else {
+            ERROR.errorDescription.textContent="";
+          }
+
+        })
 
   DOM.form.addEventListener("submit",(e)=>{
+    checkboxInput();
+
     if(!DOM.nombreUser.validationMessage==""){
       e.preventDefault()
       ERROR.errorUser.textContent="Campo obligatorio";
@@ -81,14 +156,13 @@ for(year=yearInicial;year<=yearFinal;year++){
       e.preventDefault()
       ERROR.errorDescription.textContent="Campo obligatorio";
     }
-  
-  })
-  DOM.checkbox.addEventListener("click",()=>{myFunction(DOM.password)});
-  
-  DOM.codigoPostal.addEventListener("input",()=>{
-    validarLongitudCP(DOM.codigoPostal);
+    if(!DOM.dniNieSelect.validationMessage==""){
+      e.preventDefault()
+      ERROR.errorDniNie.textContent="Campo obligatorio";
+    }
   })
 
+  DOM.checkbox.addEventListener("click",()=>{myFunction(DOM.password)});
 
   DOM.dniNieSelect.addEventListener("change",()=>{
     habilitarInput( DOM.dniNieSelect, DOM.dniNieInput)
@@ -96,15 +170,6 @@ for(year=yearInicial;year<=yearFinal;year++){
   
   DOM.dniNieInput.addEventListener("select", validarDniNie(DOM.dniNieSelect));
   // Contador de palabras
-  DOM.description.addEventListener("input", (e) => {
-    const conD = e.target.value.length
-    DOM.contDesc.textContent=`${conD} /120`;
-  })
-  
-  DOM.dptitle.addEventListener("input", () => {
-    var conT=DOM.dptitle.value.length;
-    conttitle.textContent=`${conT}/15`;
-  })
 
 function myFunction(password) {
   if (password.type === "password") {
@@ -156,17 +221,42 @@ else{
 }
 }
 
-// Contador de palabras
-function validarLongitudCP(input) {
-if (input.value.length > 5) {
-    input.value = input.value.slice(0, 5); // Limita a 5 caracteres
-}
-}
-function validarLongitudTelefono(input) {
-        if (input.value.length > 9) {
-            input.value = input.value.slice(0, 9); // Limita a 5 caracteres
+DOM.aficiones1.addEventListener("change", ()=>{
+  checkboxInput();
+})
+
+DOM.aficiones2.addEventListener("change", ()=>{
+  checkboxInput();
+})
+DOM.aficiones3.addEventListener("change", ()=>{
+  checkboxInput();
+})
+DOM.aficiones4.addEventListener("change", ()=>{
+  checkboxInput();
+})
+DOM.aficiones5.addEventListener("change", ()=>{
+  checkboxInput();
+})
+DOM.aficiones6.addEventListener("change", ()=>{
+  checkboxInput();
+})
+
+
+function checkboxInput(){
+  let checkaficiones = document.querySelectorAll('.aficiones input[type="checkbox"]');
+  //let hiddenInput = document.getElementById('hideAficiones');
+  //let errorAficiones= document.getElementById('errorAficiones');
+  checkaficiones = [...checkaficiones];
+
+  const aficionesValues = checkaficiones
+          .filter(check => check.checked) // Filtro de los seleccionados
+          .map(check => check.value);    // Valores de los seleccionados
+          
+  if (aficionesValues.length >= 2) {
+            DOM.hiddenInput.value = aficionesValues.join(",");
+            DOM.errorAficiones.textContent="";
+  } else {
+            DOM.hiddenInput.value = null;
+            DOM.errorAficiones.textContent="2 Campos obligatorios";
         }
-    }
-
-
-
+      }

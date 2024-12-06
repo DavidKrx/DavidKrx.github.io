@@ -3,16 +3,6 @@ input:valid, select:valid, textarea:valid {
     border-color: green; /* Color de borde para campos válidos */
     background-color: #d4edda; /* Fondo verde claro para campos válidos */
 }
-
-input:required:focus:invalid, select:required:focus:invalid, textarea:required:focus:invalid{
-    border-color: red; 
-    background-color: #f8d7da; 
-}
-
-.errorText{
-   color: red; 
-}
-
 /* Estilo general del formulario */
 body {
     font-family: Arial, sans-serif;
@@ -20,7 +10,7 @@ body {
 }
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 0.5fr;
 }
 
 fieldset {
@@ -30,15 +20,16 @@ fieldset {
     border-radius: 5px;
     background-color: #fff;
 }
+fieldset > div {
+    display: flex;
+    flex-direction: column;
+}
+
 
 legend {
     font-size: 1.2em;
     font-weight: bold;
     padding: 0 10px;
-}
-
-.form-group {
-    margin-bottom: 15px;
 }
 
 label {
@@ -60,10 +51,6 @@ input[type="checkbox"], input[type="radio"] {
     margin-right: 10px;
 }
 
-.form-check-label {
-    display: inline-block;
-}
-
 button {
     padding: 10px 20px;
     font-size: 1rem;
@@ -79,10 +66,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-.errorText {
-    color: red;
-    font-size: 0.875em;
-}
+
 
 /* Estilo para los contadores de caracteres */
 #conttitle, #contDesc {
@@ -109,36 +93,72 @@ a.btn:hover {
     background-color: #5a6268;
 }
 
-/* Diseño para campos de formulario específicos */
-.d-flex {
-    display: flex;
-    justify-content: space-between;
-}
 
 input[type="text"]:disabled, input[type="password"]:disabled, select:disabled {
     background-color: #e9ecef;
     cursor: not-allowed;
 }
 
-/* Estilo para inputs de radio */
-.form-check-inline {
-    margin-right: 15px;
+input:invalid, textarea:invalid{
+    border: 1px solid red;
 }
 
-/* Espaciado y alineación */
-.mt-5 {
-    margin-top: 3rem !important;
+.errorText {
+    color: red;
+    font-size: 0.875em;
 }
 
-.mb-4 {
-    margin-bottom: 1.5rem !important;
-}
+@media screen and (min-width: 900px) {
+    form{
+        min-width: 900px;
+    }
 
-.w-auto {
-    width: auto;
-}
+    .DatoUser {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0.5rem;
+    }
+    .DatoUser > div{
+        margin: 0.5rem;
+    }
+    
+    .DatoPersonal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0.5rem;
+    }
+    .DatoPersonal div{
+        margin: 0.5rem;
+    }
+    
+    .DniCuentaNacimiento{
+        display: grid;
+        grid-column: 1/3;
+        margin: 0.5rem;
+    }
+    
+    .DniCuentaNacimiento > div{
+        display: flex;
+        flex-direction: row;
+        margin: 0.5rem;
+        justify-content: space-between;
+    }
+    .DniNieCss{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin: 0.5rem;
+    }
+    
+    .DivAficiones{
+        display: grid;
+        grid-column: 1/3;
+        margin: 0.5rem;
+    }
+    
+    .aficiones{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+  }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
