@@ -3,6 +3,26 @@ input:valid, select:valid, textarea:valid {
     border-color: green; /* Color de borde para campos válidos */
     background-color: #d4edda; /* Fondo verde claro para campos válidos */
 }
+
+
+input[type="text"], input[type="password"], input[type="tel"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="text"]:disabled, input[type="password"]:disabled, select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
 /* Estilo general del formulario */
 body {
     font-family: Arial, sans-serif;
@@ -38,18 +58,6 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"], input[type="password"], input[type="tel"], input[type="number"], select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input[type="checkbox"], input[type="radio"] {
-    margin-right: 10px;
-}
 
 button {
     padding: 10px 20px;
@@ -93,20 +101,21 @@ a.btn:hover {
     background-color: #5a6268;
 }
 
-
-input[type="text"]:disabled, input[type="password"]:disabled, select:disabled {
-    background-color: #e9ecef;
-    cursor: not-allowed;
-}
-
-input:invalid, textarea:invalid{
-    border: 1px solid red;
-}
-
 .errorText {
     color: red;
     font-size: 0.875em;
 }
+
+#logs > div {
+    display: flex;
+    flex-direction: row;
+    margin: 0.2rem;
+}
+#logs > div > span{
+color: red;
+}
+
+
 
 @media screen and (min-width: 900px) {
     form{
