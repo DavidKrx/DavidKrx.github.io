@@ -58,7 +58,7 @@ const valida = {
 
 const yearInicial = 1920
 const yearFinal = 2010
-for (year = yearInicial; year <= yearFinal; year++) {
+for (let year = yearInicial; year <= yearFinal; year++) {
   let option = document.createElement("option")
   option.textContent = year;
   option.value = year;
@@ -334,3 +334,5 @@ function habilitarInput(dniNieSelect, dniTextInput) {
     dniTextInput.placeholder = "DNI/NIE"; // Placeholder predeterminado
   }
 }
+
+location.reload();
