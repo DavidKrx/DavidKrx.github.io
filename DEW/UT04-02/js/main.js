@@ -13,6 +13,7 @@ const DOM = {
   empresa: document.getElementById("empresa"),
   year: document.getElementById("year"),
   hiddenInput: document.getElementById('hideAficiones'),
+  hobbiesList:document.querySelectorAll('.aficiones input[type="checkbox"]'),
   dptitle: document.getElementById("dptitle"),
   description: document.getElementById("description"),
   //DOM otras funcionalidades
@@ -244,6 +245,11 @@ DOM.form.addEventListener("submit", (e) => {
     ERROR.errorDniNie.textContent = "Campo obligatorio";
     DOM.dniNieSelect.setAttribute('style', 'border: 1px solid red;');
   }
+  if (!DOM.hiddenInput.validationMessage == "") {
+    e.preventDefault()
+    ERROR.errorDniNie.textContent = "Campo obligatorio";
+    DOM.dniNieSelect.setAttribute('style', 'border: 1px solid red;');
+  }
 })
 
 DOM.checkbox.addEventListener("click", () => { myFunction(DOM.password) });
@@ -253,43 +259,15 @@ DOM.dniNieSelect.addEventListener("change", () => {
 })
 DOM.dniNieInput.addEventListener("input", validarDniNie(DOM.dniNieSelect));
 
-DOM.aficiones1.addEventListener("change", () => {
-  checkboxInput();
-})
 
-DOM.aficiones2.addEventListener("change", () => {
-  checkboxInput();
-})
-DOM.aficiones3.addEventListener("change", () => {
-  checkboxInput();
-})
-DOM.aficiones4.addEventListener("change", () => {
-  checkboxInput();
-})
-DOM.aficiones5.addEventListener("change", () => {
-  checkboxInput();
-})
-DOM.aficiones6.addEventListener("change", () => {
-  checkboxInput();
-})
-
-function checkboxInput() {
-  let checkaficiones = document.querySelectorAll('.aficiones input[type="checkbox"]');
-  //let hiddenInput = document.getElementById('hideAficiones');
-  //let errorAficiones= document.getElementById('errorAficiones');
-  checkaficiones = [...checkaficiones];
-  const aficionesValues = checkaficiones
-    .filter(check => check.checked) // Filtro de los seleccionados
-    .map(check => check.value);    // Valores de los seleccionados
-
-  if (aficionesValues.length >= 2) {
-    DOM.hiddenInput.value = aficionesValues.join(",");
-    DOM.errorAficiones.textContent = "";
-  } else {
-    DOM.hiddenInput.value = null;
-    DOM.errorAficiones.textContent = "2 Campos obligatorios";
-  }
-}
+DOM.hobbiesList.forEach(hobby => {
+  hobby.addEventListener("change", () => {
+      let hobbiesList = [...DOM.hobbiesList];
+      let checkedHobbies = hobbiesList.filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
+      DOM.hiddenInput.value = checkedHobbies.length >= 2 ? checkedHobbies.join(",") : "";
+      if (checkedHobbies.length >= 2) ERROR.errorAficiones.textContent = "";
+  })
+});
 
 // Validar DNI
 function validarDniNie(dniNieSelect) {
@@ -298,15 +276,12 @@ function validarDniNie(dniNieSelect) {
   const regexDni = /^\d{8}[A-Za-z]$/;
   // Comprobamos si el valor coincide con alguna de las expresiones regulares
   if (regexDni.test(dniNieSelect.value)) {
-    dniNieSelect.style.background.color = "green";
     dniNieSelect.style.color = "green";
   }
   else if (regexNie.test(dniNieSelect.value)) {
-    dniNieSelect.style.background.color = "blue";
     dniNieSelect.style.color = "blue";
   }
   else {
-    dniNieSelect.style.background.color = "red";
     dniNieSelect.style.color = "red";
   }
 }
@@ -334,5 +309,3 @@ function habilitarInput(dniNieSelect, dniTextInput) {
     dniTextInput.placeholder = "DNI/NIE"; // Placeholder predeterminado
   }
 }
-
-location.reload();
